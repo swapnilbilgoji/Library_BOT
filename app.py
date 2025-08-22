@@ -130,8 +130,8 @@ Question:
 # 4) STREAMLIT UI
 # ---------------------------
 st.set_page_config(page_title="📚 Library Assistant", layout="centered")
-st.markdown("<h1 style='text-align:center; color:#4CAF50;'>📚 Library Assistant</h1>", unsafe_allow_html=True)
-st.write("Ask me about books in your library database.")
+st.markdown("<h1 style='text-align:center; color:#4CAF50;'>📚 Library Assistant MMEC</h1>", unsafe_allow_html=True)
+st.write("Ask me about books in your library database of MMEC.")
 
 # Load docs & vectorstore
 docs = load_csv_to_docs(CSV_PATH)
