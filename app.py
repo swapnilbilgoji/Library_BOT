@@ -27,8 +27,9 @@ from langchain.docstore.document import Document
 # 0) ENV & CONSTANTS
 # ---------------------------
 load_dotenv()
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-assert GROQ_API_KEY, "Set GROQ_API_KEY in your environment or .env file"
+st.secrets["GROQ_API_KEY"] == "GROQ_API_KEY"
+# GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+# assert GROQ_API_KEY, "Set GROQ_API_KEY in your environment or .env file"
 
 CSV_PATH = "Library_data.csv"
 PERSIST_DIR = "chroma_library"
