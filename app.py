@@ -23,7 +23,8 @@ from langchain_core.prompts import PromptTemplate
 #from langchain.prompts import PromptTemplate
 #from langchain.chains import RetrievalQA
 from langchain_classic.chains import RetrievalQA
-from langchain.docstore.document import Document
+from langchain_core.documents import Document
+#from langchain.docstore.document import Document
 
 # ---------------------------
 # 0) ENV & CONSTANTS
