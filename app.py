@@ -93,7 +93,7 @@ def load_vectorstore(_docs):  # <-- leading underscore fixes caching
 # ---------------------------
 @st.cache_resource(show_spinner=False)
 def build_qa(_retriever):
-    llm = ChatGroq(model="gemini-3-pro-preview", groq_api_key=GROQ_API_KEY)
+    llm = ChatGroq(model="gemma2-9b-it", groq_api_key=GROQ_API_KEY)
 
     template = """
 You are a helpful library assistant.
