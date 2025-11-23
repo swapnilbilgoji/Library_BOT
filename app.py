@@ -30,7 +30,7 @@ from langchain_core.documents import Document
 # 0) ENV & CONSTANTS
 # ---------------------------
 load_dotenv()
-GROQ_API_KEY = st.secrets["GROQ_API_KEY"] 
+GROQ_API_KEY = "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" #st.secrets["GROQ_API_KEY"] 
 # GROQ_API_KEY = os.getenv("GROQ_API_KEY") == "GROQ_API_KEY"
 # assert GROQ_API_KEY, "Set GROQ_API_KEY in your environment or .env file"
 
