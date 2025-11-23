@@ -19,7 +19,8 @@ from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_groq import ChatGroq
-from langchain.prompts import PromptTemplate
+from langchain_core.prompts import PromptTemplate
+#from langchain.prompts import PromptTemplate
 from langchain.chains import RetrievalQA
 from langchain.docstore.document import Document
 
