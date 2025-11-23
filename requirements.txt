@@ -12,3 +12,5 @@ sentence_transformers
 langchain_community
 streamlit
 pysqlite3-binary
+
+
