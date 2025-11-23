@@ -17,7 +17,7 @@ CSV_PATH = "Library_data.csv"
 
 st.set_page_config(page_title="📚 Library Assistant (Local)", layout="centered")
 st.markdown("<h1 style='text-align:center; color:#4CAF50;'>📚 Library Assistant MMEC — Local</h1>", unsafe_allow_html=True)
-st.write("This version uses local retrieval (no Chroma / Rust / external LLM). Works offline for small CSVs.")
+#st.write("This version uses local retrieval (no Chroma / Rust / external LLM). Works offline for small CSVs.")
 
 # ---------------------------
 # 0) Embedding utility wrappers
