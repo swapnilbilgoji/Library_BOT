@@ -1,7 +1,7 @@
 # --- run in terminal ---
 # streamlit run app.py
-
-import sys
+#hii
+import sys 
 
 try:
     import pysqlite3
