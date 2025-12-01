@@ -318,7 +318,7 @@ def request_issue(data: IssueRequestIn, db: Session = Depends(get_db)):
     return {"message": "Book issued successfully and librarian notified."}
 
 # ---------------------------
-# RENEW BOOK
+# RENEW BOOK (with MAX 3 RENEWALS LIMIT)
 # ---------------------------
 
 @app.post("/books/renew")
@@ -335,6 +335,24 @@ def renew_book(data: RenewIn, db: Session = Depends(get_db)):
     if not issue:
         raise HTTPException(status_code=404, detail="Active issue record not found.")
 
+    # ✅ RENEWAL LIMIT CHECK: max 3 renewals
+    if issue.renew_count >= 3:
+        # Find student for WhatsApp notification
+        student = db.query(Student).filter(Student.usn == data.usn).first()
+        if student and student.phone:
+            msg = (
+                "⚠ Renewal Failed\n"
+                "You have reached the maximum renewal limit (3 times) for this book.\n"
+                "Please return the book to the library to continue using it."
+            )
+            send_whatsapp_message(student.phone, msg)
+
+        raise HTTPException(
+            status_code=400,
+            detail="Maximum renewal limit reached (3). Please return the book."
+        )
+
+    # ✅ Allowed renewal: update due date & renew_count
     issue.due_date = issue.due_date + timedelta(days=data.extra_days)
     issue.status = "renewed"
     issue.renew_count += 1
@@ -352,7 +370,8 @@ def renew_book(data: RenewIn, db: Session = Depends(get_db)):
     if student and student.phone:
         msg = (
             f"✅ Your book (Accession {data.accession_no}) has been renewed.\n"
-            f"New due date: {issue.due_date}"
+            f"New due date: {issue.due_date}\n"
+            f"Renewals used: {issue.renew_count} / 3"
         )
         send_whatsapp_message(student.phone, msg)
 
