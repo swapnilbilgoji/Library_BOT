@@ -35,7 +35,7 @@ PERSIST_DIR = "chroma_library"
 EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 # 🔗 CHANGE THIS to your deployed backend URL when on cloud
-BACKEND_URL = "http://localhost:8000"
+BACKEND_URL = "https://backend-library-folder-production.up.railway.app"
 
 st.set_page_config(page_title="📚 Super Library Assistant", layout="wide")
 
